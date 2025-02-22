@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Crowd Wisdom</title>
+    
+    <!-- Favicon Section -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 120px); /* Adjust for footer height */
+        }
+
+        .logo {
+            width: 80vw; /* Responsive width based on viewport */
+            max-width: 600px; /* Maximum size */
+            height: auto;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 95vw; /* Larger relative size on mobile */
+            }
+        }
+
+        .footer-text {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            position: fixed;
+            bottom: 0;
+            background: white; /* Add background if needed */
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="crowd_wisdom_logo.png" class="logo" alt="Crowd Wisdom Logo">
+    </div>
+    <div class="footer-text">
+        Crowd Wisdom SL - Rambla de Catalunya 38, 8-1 - 08007 Barcelona - gab@crowd-wisdom.com
+    </div>
+</body>
+</html>
