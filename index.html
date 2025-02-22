@@ -14,6 +14,7 @@
     <meta name="theme-color" content="#ffffff">
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -27,9 +28,11 @@
         .container {
             flex: 1;
             display: flex;
+            flex-direction: column; /* Change to column layout */
             justify-content: center;
             align-items: center;
-            min-height: calc(100vh - 120px); /* Adjust for footer height */
+            min-height: calc(100vh - 120px);
+            gap: 30px; /* Add space between logo and app badges */
         }
 
         .logo {
@@ -56,11 +59,41 @@
             background: white; /* Add background if needed */
             z-index: 1;
         }
+
+        /* Add new styles for app links section */
+        .app-links {
+            display: flex;
+            gap: 20px; /* Space between images */
+            justify-content: center;
+        }
+
+        .app-store-img {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .app-store-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Add coming soon text style */
+        .coming-soon {
+            font-family: 'Alice', sans-serif;
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: -10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="crowd_wisdom_logo.png" class="logo" alt="Crowd Wisdom Logo">
+        <img src="claro-logo.png" class="logo" alt="Crowd Wisdom Logo">
+        <h2 class="coming-soon">Coming Soon</h2>
+        <div class="app-links">
+            <img src="android.png" class="app-store-img" alt="Google Play">
+            <img src="appstore.png" class="app-store-img" alt="App Store">
+        </div>
     </div>
     <div class="footer-text">
         Crowd Wisdom SL - Rambla de Catalunya 38, 8-1 - 08007 Barcelona - gab@crowd-wisdom.com
