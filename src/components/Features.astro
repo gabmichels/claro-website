@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import tuscanyImage from '../assets/images/hero/tuscany_upscayl.jpg';
+import japanImage from '../assets/images/hero/paint_japan.jpg';
+import doctorImage from '../assets/images/hero/doctor_situations.jpg';
+---
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="container-custom">
+    <h2 class="text-3xl md:text-4xl font-semibold mb-16 text-center">
+      Experience Claro's magic in under 10 seconds.
+    </h2>
+
+    <div class="flex flex-col md:flex-row items-center justify-center mb-16">
+      <Image 
+        src={japanImage} 
+        alt="Claro app interface" 
+        width={300}
+        height={500}
+        class="mx-auto rounded-3xl shadow-lg w-full max-w-[250px] object-cover h-[400px]"
+      />
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="p-6 rounded-lg">
+        <Image 
+          src={tuscanyImage} 
+          alt="Person ordering food in Tuscany" 
+          width={600}
+          height={400}
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        />
+        <h3 class="text-xl font-semibold mb-2">Ordering food abroad</h3>
+        <p class="text-gray-600">Never awkwardly point at the menu again.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="p-6 rounded-lg">
+        <Image 
+          src={japanImage} 
+          alt="People meeting locals in Japan" 
+          width={600}
+          height={400}
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        />
+        <h3 class="text-xl font-semibold mb-2">Meeting locals</h3>
+        <p class="text-gray-600">Make new friends, not wirritences.</p>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="p-6 rounded-lg">
+        <Image 
+          src={doctorImage} 
+          alt="Person getting medical help when abroad" 
+          width={600}
+          height={400}
+          class="w-full h-48 object-cover rounded-lg mb-4"
+        />
+        <h3 class="text-xl font-semibold mb-2">Getting help when lost</h3>
+        <p class="text-gray-600">Navigate new cities with confidence.</p>
+      </div>
+    </div>
+  </div>
+</section> 

@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  <main>
+    <section class="py-24 md:py-32 bg-[#d9e6c6]">
+      <div class="container-custom text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-normal text-slate-800 mb-6">
+          Features
+        </h1>
+        
+        <div class="max-w-2xl mx-auto">
+          <p class="text-xl mb-8">
+            We're working on showcasing all the amazing features of Claro.
+            This page is coming soon!
+          </p>
+          
+          <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="/" class="btn-primary">Back to Home</a>
+            <a href="https://claro-ai.tawk.help/" target="_blank" class="bg-slate-700 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-all">
+              Visit Help Center
+            </a>
+          </div>
+        </div>
+        
+        <div class="mt-16">
+          <div class="inline-block relative">
+            <div class="w-24 h-24 border-t-4 border-[#59654b] border-solid rounded-full animate-spin"></div>
+            <p class="mt-4 text-slate-600">Coming Soon</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .animate-spin {
+    animation: spin 2s linear infinite;
+  }
+</style> 

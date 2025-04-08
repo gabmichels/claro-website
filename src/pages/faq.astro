@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  
+  <main class="bg-slate-50 py-16">
+    <div class="container-custom">
+      <h1 class="text-3xl md:text-4xl font-semibold mb-12 text-center">Frequently Asked Questions</h1>
+      
+      <div class="max-w-3xl mx-auto mb-16">
+        <!-- FAQ Item 1 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-2">What is Claro?</h3>
+          <p class="text-gray-700">Claro is an AI-powered translation app that helps you communicate across language barriers with real-time translation capabilities.</p>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-2">How does Claro work?</h3>
+          <p class="text-gray-700">Claro utilizes advanced artificial intelligence to provide instant translations. Simply speak or type into the app, and it will translate your words to your chosen language.</p>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-2">What languages does Claro support?</h3>
+          <p class="text-gray-700">Claro supports over 100 languages for text translation and more than 40 languages for speech translation, making it ideal for global travelers and language learners.</p>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-2">Do I need an internet connection to use Claro?</h3>
+          <p class="text-gray-700">While most features require an internet connection for the best experience, Claro offers some basic offline capabilities for essential translations when you're on the go.</p>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-2">How much does Claro cost?</h3>
+          <p class="text-gray-700">Claro offers a free tier with basic translation features, as well as premium weekly and monthly plans. Visit our home page for current pricing details.</p>
+        </div>
+        
+        <!-- FAQ Item 6 -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-2">Is my data secure with Claro?</h3>
+          <p class="text-gray-700">Yes, we take data privacy very seriously. All translations are encrypted and we don't store your conversations unless you specifically save them to your account.</p>
+        </div>
+      </div>
+      
+      <!-- Contact and Chat Section -->
+      <div class="bg-[#d9e6c6] rounded-xl p-8 max-w-2xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-4 text-center">Still have questions?</h2>
+        <div class="flex flex-col md:flex-row justify-center gap-6 mt-8">
+          <a href="https://claro-ai.tawk.help/" target="_blank" class="btn-primary">Visit Help Center</a>
+          <button id="open-chat" class="btn-secondary">Chat with Us</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Script to open the Tawk.to chat widget
+  document.getElementById('open-chat')?.addEventListener('click', function() {
+    if (typeof Tawk_API !== 'undefined') {
+      Tawk_API.maximize();
+    } else {
+      window.location.href = "https://claro-ai.tawk.help/";
+    }
+  });
+</script>
+
+<style>
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    text-align: center;
+    transition: all 0.2s;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #f3f4f6;
+  }
+</style> 

@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import surfersImage from '../assets/images/hero/surfers_beach.jpg';
+---
+
+<section class="bg-[#d9e6c6] py-10">
+  <div class="container-custom">
+    <div class="relative">
+      <!-- Full-width panoramic image -->
+      <div class="w-full h-[450px] md:h-[600px] overflow-hidden rounded-3xl relative">
+        <Image 
+          src={surfersImage} 
+          alt="People using Claro app at the beach" 
+          width={1200}
+          height={600}
+          class="w-full h-full object-cover"
+        />
+        <!-- Dark overlay for better text readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+      </div>
+      
+      <!-- Text overlay -->
+      <div class="absolute top-0 left-0 w-full h-full flex flex-col justify-center p-8 md:p-16">
+        <div class="max-w-lg">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+            The next generation of translation—<br>powered by AI.
+          </h1>
+          
+          <div class="mt-8">
+            <a href="/download" class="btn-primary inline-block">Download Claro</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Add any custom styles here */
+  .btn-primary {
+    z-index: 10;
+  }
+</style> 
