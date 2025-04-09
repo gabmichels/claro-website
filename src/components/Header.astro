@@ -27,7 +27,7 @@ import claroLogo from '../assets/images/logo/claro_text_logo@4x.png';
     </div>
     
     <!-- Mobile menu button -->
-    <button class="md:hidden text-slate-800">
+    <button id="mobile-menu-button" class="md:hidden text-slate-800">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
@@ -35,7 +35,7 @@ import claroLogo from '../assets/images/logo/claro_text_logo@4x.png';
   </div>
   
   <!-- Mobile menu (hidden by default) -->
-  <div class="hidden md:hidden">
+  <div id="mobile-menu" class="hidden md:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <a href="/features" class="block px-3 py-2 text-slate-800 hover:bg-[#c6d6b1]">Features</a>
       <a href="/how-it-works" class="block px-3 py-2 text-slate-800 hover:bg-[#c6d6b1]">How It Works</a>
@@ -45,4 +45,13 @@ import claroLogo from '../assets/images/logo/claro_text_logo@4x.png';
       <a href="/download" class="block px-3 py-2 text-slate-800 hover:bg-[#c6d6b1]">Download</a>
     </div>
   </div>
-</header> 
+</header>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script> 
