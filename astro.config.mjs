@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://claro-ai.github.io',
+  site: 'https://allclaro.com',
   build: {
     assets: '_astro',
   },
