@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  
+  <main class="bg-slate-50 py-16 min-h-[60vh]">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-3xl md:text-4xl font-semibold mb-8 text-center">About Us</h1>
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm">
+          <p class="text-lg mb-8 text-center">This app is brought to you by Crowd Wisdom SL</p>
+          
+          <div class="border-t border-gray-200 pt-6 mt-6">
+            <h2 class="text-xl font-semibold mb-4">Contact Information</h2>
+            
+            <div class="space-y-2">
+              <p><span class="font-medium">Website:</span> <a href="https://www.crowd-wisdom.com" target="_blank" class="text-blue-600 hover:underline">www.crowd-wisdom.com</a></p>
+              <p><span class="font-medium">Company:</span> Crowd Wisdom SL</p>
+              <p><span class="font-medium">Address:</span> Rambla de Catalunya 38, 8-1 - 08007 Barcelona</p>
+              <p><span class="font-medium">Email:</span> <a href="mailto:contact@crowd-wisdom.com" class="text-blue-600 hover:underline">contact@crowd-wisdom.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  .container-custom {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+</style> 
