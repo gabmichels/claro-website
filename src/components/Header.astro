@@ -1,17 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-import claroLogo from '../assets/images/logo/claro_logo_dark.svg';
 ---
 
 <header class="bg-[#d9e6c6] py-4">
   <div class="container-custom flex justify-between items-center">
     <a href="/" class="flex items-center">
-      <Image 
-        src={claroLogo} 
+      <img 
+        src="/assets/images/claro_logo_dark.svg" 
         alt="Claro Logo" 
-        width={110} 
-        height={40} 
-        loading="eager"
+        width="110" 
+        height="40" 
         class="h-10 w-auto object-contain"
       />
     </a>
