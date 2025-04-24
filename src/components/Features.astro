@@ -5,61 +5,277 @@ import japanImage from '../assets/images/hero/paint_japan.jpg';
 import doctorImage from '../assets/images/hero/doctor_situations.jpg';
 ---
 
-<section class="py-16 md:py-24 bg-white">
+<section id="features" class="py-16 md:py-24 bg-white">
   <div class="container-custom">
     <h2 class="text-3xl md:text-4xl font-semibold mb-16 text-center">
       Experience Claro's magic in under 10 seconds.
     </h2>
-
-    <div class="flex flex-col md:flex-row items-center justify-center mb-16">
-      <Image 
-        src={japanImage} 
-        alt="Claro app interface" 
-        width={300}
-        height={500}
-        class="mx-auto rounded-3xl shadow-lg w-full max-w-[250px] object-cover h-[400px]"
-      />
-    </div>
     
-    <div class="grid md:grid-cols-3 gap-8">
-      <!-- Feature 1 -->
-      <div class="p-6 rounded-lg">
-        <Image 
-          src={tuscanyImage} 
-          alt="Person ordering food in Tuscany" 
-          width={600}
-          height={400}
-          class="w-full h-48 object-cover rounded-lg mb-4"
-        />
-        <h3 class="text-xl font-semibold mb-2">Ordering food abroad</h3>
-        <p class="text-gray-600">Never awkwardly point at the menu again.</p>
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img src="/assets/images/carousel/1.jpg" alt="Claro AI Feature 1" />
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/carousel/2.jpg" alt="Claro AI Feature 2" />
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/carousel/3.jpg" alt="Claro AI Feature 3" />
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/carousel/4.jpg" alt="Claro AI Feature 4" />
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/images/carousel/5.jpg" alt="Claro AI Feature 5" />
+        </div>
       </div>
       
-      <!-- Feature 2 -->
-      <div class="p-6 rounded-lg">
-        <Image 
-          src={japanImage} 
-          alt="People meeting locals in Japan" 
-          width={600}
-          height={400}
-          class="w-full h-48 object-cover rounded-lg mb-4"
-        />
-        <h3 class="text-xl font-semibold mb-2">Meeting locals</h3>
-        <p class="text-gray-600">Make new friends, not wirritences.</p>
-      </div>
-      
-      <!-- Feature 3 -->
-      <div class="p-6 rounded-lg">
-        <Image 
-          src={doctorImage} 
-          alt="Person getting medical help when abroad" 
-          width={600}
-          height={400}
-          class="w-full h-48 object-cover rounded-lg mb-4"
-        />
-        <h3 class="text-xl font-semibold mb-2">Getting help when lost</h3>
-        <p class="text-gray-600">Navigate new cities with confidence.</p>
+      <div class="carousel-dots">
+        <!-- Dots will be inserted by JavaScript -->
       </div>
     </div>
   </div>
-</section> 
+</section>
+
+<script>
+  // Carousel functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const totalItems = items.length;
+    let currentIndex = 0;
+    let interval;
+    
+    // Create dots
+    items.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-dot');
+      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    // Initialize carousel
+    function setupCarousel() {
+      // Position items
+      updateCarousel();
+      
+      // Start autoplay
+      startAutoplay();
+      
+      // Add click event to carousel items
+      items.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          // If it's not the active item, go to that slide
+          if (index !== currentIndex) {
+            goToSlide(index);
+          }
+        });
+        
+        // Add cursor style to show item is clickable
+        item.style.cursor = 'pointer';
+      });
+      
+      // Pause autoplay on hover
+      carousel.addEventListener('mouseenter', () => clearInterval(interval));
+      carousel.addEventListener('mouseleave', () => startAutoplay());
+    }
+    
+    function updateCarousel() {
+      // Update item positions and visuals
+      items.forEach((item, index) => {
+        // Calculate position relative to current index
+        let position = index - currentIndex;
+        
+        // Handle looping
+        if (position < -2) position += totalItems;
+        if (position > 2) position -= totalItems;
+        
+        // Reset classes
+        item.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+        
+        // Apply appropriate class based on position
+        if (position === 0) {
+          item.classList.add('active');
+        } else if (position === -1 || position === totalItems - 1) {
+          item.classList.add('prev');
+        } else if (position === 1 || position === -(totalItems - 1)) {
+          item.classList.add('next');
+        } else if (position === -2 || position === totalItems - 2) {
+          item.classList.add('far-prev');
+        } else if (position === 2 || position === -(totalItems - 2)) {
+          item.classList.add('far-next');
+        }
+      });
+      
+      // Update active dot
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateCarousel();
+    }
+    
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+      
+      // Reset autoplay timer when manually changing slides
+      clearInterval(interval);
+      startAutoplay();
+    }
+    
+    function startAutoplay() {
+      clearInterval(interval);
+      interval = setInterval(nextSlide, 5000);
+    }
+    
+    // Initialize the carousel
+    setupCarousel();
+  });
+</script>
+
+<style>
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 65vh;
+    max-height: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  
+  .carousel {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    width: 230px;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Active (center) item */
+  .carousel-item.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+    transform: translateX(0) scale(1);
+  }
+  
+  /* Adjacent items (left and right) */
+  .carousel-item.prev {
+    opacity: 0.7;
+    visibility: visible;
+    z-index: 4;
+    transform: translateX(-245px) scale(0.85);
+  }
+  
+  .carousel-item.next {
+    opacity: 0.7;
+    visibility: visible;
+    z-index: 4;
+    transform: translateX(245px) scale(0.85);
+  }
+  
+  /* Far items (not visible but prepped) */
+  .carousel-item.far-prev {
+    opacity: 0.3;
+    visibility: visible;
+    z-index: 3;
+    transform: translateX(-420px) scale(0.7);
+  }
+  
+  .carousel-item.far-next {
+    opacity: 0.3;
+    visibility: visible;
+    z-index: 3;
+    transform: translateX(420px) scale(0.7);
+  }
+  
+  /* Dots navigation */
+  .carousel-dots {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+  }
+  
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-dot.active {
+    background-color: var(--accent-color, #4a7c59);
+  }
+  
+  @media (max-width: 992px) {
+    .carousel-item {
+      width: 190px;
+    }
+    
+    .carousel-item.prev {
+      transform: translateX(-205px) scale(0.85);
+    }
+    
+    .carousel-item.next {
+      transform: translateX(205px) scale(0.85);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-container {
+      height: 50vh;
+      max-height: 450px;
+    }
+    
+    .carousel-item {
+      width: 160px;
+    }
+    
+    .carousel-item.prev {
+      transform: translateX(-170px) scale(0.85);
+    }
+    
+    .carousel-item.next {
+      transform: translateX(170px) scale(0.85);
+    }
+  }
+</style> 
