@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CookieConsent from '../components/CookieConsent.astro';
 ---
 
 <!doctype html>
@@ -32,6 +33,7 @@ import '../styles/global.css';
 	</head>
 	<body class="min-h-screen bg-slate-50">
 		<slot />
+		<CookieConsent />
 	</body>
 </html>
 
