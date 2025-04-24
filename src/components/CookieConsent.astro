@@ -402,9 +402,11 @@
     
     // Function to enable analytics cookies
     function enableAnalytics() {
-      // This is where you would initialize your analytics services
-      // For example, Google Analytics or similar
-      console.log('Analytics cookies enabled');
+      // Initialize Google Analytics if the function exists
+      if (typeof window.enableGoogleAnalytics === 'function') {
+        window.enableGoogleAnalytics();
+        console.log('Analytics cookies enabled');
+      }
     }
     
     // Function to enable marketing cookies

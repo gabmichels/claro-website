@@ -17,6 +17,40 @@ import CookieConsent from '../components/CookieConsent.astro';
 		<meta name="description" content="CLARO - The next generation of translation powered by AI" />
 		<title>CLARO - AI-Powered Translation</title>
 		
+		<!-- Google Analytics setup (initially disabled) -->
+		<script type="text/javascript">
+			// Create window.dataLayer if it doesn't exist
+			window.dataLayer = window.dataLayer || [];
+			// Define gtag function
+			function gtag(){dataLayer.push(arguments);}
+			// Set default consent to 'denied'
+			gtag('consent', 'default', {
+				'analytics_storage': 'denied'
+			});
+			
+			// Function to initialize Google Analytics (called when user consents)
+			window.enableGoogleAnalytics = function() {
+				// Set consent to 'granted'
+				gtag('consent', 'update', {
+					'analytics_storage': 'granted'
+				});
+				
+				// Load GA script if not already loaded
+				if (!document.getElementById('ga-script')) {
+					const script = document.createElement('script');
+					script.id = 'ga-script';
+					script.async = true;
+					// Replace GA_MEASUREMENT_ID with your actual ID
+					script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
+					document.head.appendChild(script);
+					
+					// Initialize GA
+					gtag('js', new Date());
+					gtag('config', 'GA_MEASUREMENT_ID');
+				}
+			};
+		</script>
+		
 		<!--Start of Tawk.to Script-->
 		<script type="text/javascript">
 			var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
